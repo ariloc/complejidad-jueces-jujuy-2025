@@ -9,7 +9,6 @@
 \usepackage{tikz}
 \usetikzlibrary{tikzmark, calc, arrows, intersections, decorations.pathreplacing, calligraphy}
 \usepackage{pgfplots}
-\usepackage{fontawesome5}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage[svgnames]{xcolor}
@@ -18,6 +17,10 @@
 \usepackage{tcolorbox}
 \usepackage{tabularray}
 \usepackage{subcaption}
+\usepackage{svg}
+
+\setbeamercolor{block title alerted}{bg=Gold!80!Goldenrod, fg=black}
+\setbeamercolor{block body alerted}{bg=Gold!20!white, fg=black}
 
 \newcommand{\sfb}[1]{\text{\bfseries\sffamily #1}}
 
@@ -25,7 +28,7 @@
 
 \author[Ariel Fideleff]{Ariel Leonardo Fideleff\\[2ex]\scriptsize{}Entrenamiento en Programación Competitiva\\Facultad de Ingeniería - Universidad Nacional de Jujuy (UNJu)}
 
-\date{\\\vspace{-3ex}30 de mayo del 2025}
+\date{\\\vspace{-3ex}31 de mayo del 2025}
 
 \beamertemplatenavigationsymbolsempty
 
@@ -35,11 +38,17 @@
     \begin{frame}
         \tableofcontents
     \end{frame}
-
+    
     \section{Introducción}
     \begin{frame}
-        Hola
+        \tableofcontents[currentsection]
+    \end{frame}
 
+    \begin{frame}
+        \begin{center}
+            \Huge
+            ¡Hola!
+        \end{center}
     \end{frame}
 
     \section{Complejidad computacional}
@@ -368,7 +377,7 @@ cout << sum;
 
         \begin{actionenv}<7->
         \begin{minted}[fontsize=\small, escapeinside=??]{cpp}
-int w: cin >> w;?\tikzmark{readw}?
+int w; cin >> w;?\tikzmark{readw}?
 if ((w%2) == 0) ?\tikzmark{evenw}?
     cout << "YES"; ?\tikzmark{writey}?
 else
@@ -473,21 +482,21 @@ while (hi-lo > 1) {?\tikzmark{binarycmp}?
     \end{frame}
 
     \begin{frame}{$\mathcal{O}(n)$ (otro ejemplo)}
-        \begin{block}{Problema (\only<1>{En busca de la mayor diversión}\only<2>{En busca de la mayor diversión, \textbf{Certamen Escolar 2021}}\only<3->{En busca de la mayor diversión, \textbf<3,4>{omegaUp 13769\tikzmark{judgeou}}})}
-            \uncover<5->{
+        \begin{block}{Problema (\only<1>{En busca de la mayor diversión}\only<2->{En busca de la mayor diversión, \textbf<2,3>{omegaUp 13769\tikzmark{judgeou}}})}
+            \uncover<4->{
                 Nicolás quiere que le compren $N$ juguetes pero su mamá sólo le comprará $N-1$. El chico le asignó un nivel de diversión positivo a cada uno de los $N$ juguetes, dados por entrada. Queremos obtener la mayor diversión posible con $N-1$ juguetes de los $N$ dados.
             }
             \begin{tikzpicture}[remember picture, overlay]
                 \node (a) at ($ (pic cs:judgeou) + (-2.25,-.75) $) {};
-                \only<4>{
+                \only<3>{
                     \node at (a) {(Juez Online)};
                     \draw[->, thick] ($ (a) + (0,0.25) $) -- ($ (pic cs:judgeou) + (-2.25,-.25) $);
                 }
             \end{tikzpicture}
         \end{block}
-        \uncover<6->{Es decir, queremos obtener la mayor suma posible de $n-1$ elementos de un arreglo de $n$ enteros positivos.} \uncover<7->{Esto es equivalente a sumar todos los números y restar el de menor valor.} 
+        \uncover<5->{Es decir, queremos obtener la mayor suma posible de $n-1$ elementos de un arreglo de $n$ enteros positivos.} \uncover<6->{Esto es equivalente a sumar todos los números y restar el de menor valor.} 
 
-        \uncover<8->{El código debería ser sencillo, no?}
+        \uncover<7->{El código debería ser sencillo, no?}
     \end{frame}
 
     \begin{frame}[fragile, noframenumbering]
@@ -1248,7 +1257,7 @@ while (arr[j] >= arr[i])
 
     \begin{frame}[noframenumbering]
         \begingroup
-        \setlength{\leftmargini}{12pt}
+        \setlength{\leftmargini}{16pt}
         \begin{itemize}
             \item Probamos entonces que cada elemento del arreglo se lo itera por el \mintinline{cpp}{while} \textbf{valiendo la condición} a lo sumo una vez entre todas las iteraciones del \mintinline{cpp}{for}.\pause 
 
@@ -1300,14 +1309,14 @@ while (arr[j] >= arr[i])
 
     \begin{frame}{¿Qué es omegaUp?}
         \begin{center}
-            \includegraphics[width=.4\linewidth]{./omegaup_curves.png}
+            \href{https://omegaup.com/}{\includegraphics[width=.4\linewidth]{./omegaup_curves.png}}
         \end{center}\pause
 
-        \textbf{omegaUp} es un juez online muy utilizado en México que permite fácilmente crear competencias y subir problemas nuevos con distintos formatos. Debido a su conveniencia, se lo utiliza para llevar a cabo el Certamen Escolar todos los años y el Torneo Jujeño de Programación. \pause
+        \textbf{omegaUp} es un juez online muy utilizado en México que permite fácilmente crear competencias y subir problemas nuevos con distintos formatos. Debido a su conveniencia, se lo utiliza para llevar a cabo el Torneo Jujeño de Programación, por ejemplo. \pause
 
         También es utilizado para desarrollar de forma virtual todos los años la OII (Olimpíada Iberoamericana de Informática). \pause \vspace{4pt}
 
-        Por este motivo, vamos a familiarizarnos con el funcionamiento de los jueces online tomando como caso a omegaUp, para que se puedan manejar por la página en caso que deseen participar en las competencias que se preparan desde la escuela.
+        Por este motivo, vamos a familiarizarnos con el funcionamiento de los jueces online tomando como caso a omegaUp, para que se puedan manejar por la página en caso que deseen participar en las competencias que se preparen a futuro.
     \end{frame}
 
     \begin{frame}{Login / crear una cuenta}
@@ -1404,12 +1413,6 @@ while (arr[j] >= arr[i])
         \end{itemize}
     \end{frame}
 
-
-    \begin{frame}[noframenumbering]
-        % TODO: Mostrar pantalla concursos, ir a pasados, buscar certamen, entrar al contest y explorar. Ver capaz algún concurso en vivo y mandar? Mostrar link modo práctica si hubiéramos entrado por lista de problemas. Explicar scoreboard.
-        TODO: Mostrar pantalla concursos, ir a pasados, buscar certamen, entrar al contest y explorar. Ver capaz algún concurso en vivo y mandar? Mostrar link modo práctica si hubiéramos entrado por lista de problemas. Explicar scoreboard.
-    \end{frame}
-
     \begin{frame}{Estructura de un problema}
         El formato de un problema depende de la competencia original donde se usó (si la hay) y/o del juez. \pause Entremos al enunciado del problema de antes y veamos los aspectos más importantes: \pause
 
@@ -1447,7 +1450,6 @@ while (arr[j] >= arr[i])
             \end{center} \pause
 
             Es decir, en este problema, al correr cada caso nuestra solución puede reservar a lo sumo 4.8828125 MiB. \pause Número raro...
-            % TODO: Mencionar que ML no suele ser tan importante que TL, IOI vs ICPC
         \end{enumerate}
     \end{frame}
 
@@ -1492,8 +1494,478 @@ while (arr[j] >= arr[i])
     \begin{frame}[noframenumbering]
         \begin{enumerate}
             \setcounter{enumi}{5}
-            \item \textbf{Cotas}: \pause
+            \item \textbf{Cotas}: \pause Establecen el intervalo o conjunto de valores que toman los valores de la entrada y/o la cantidad máxima de elementos que pueden haber en un caso de prueba. \pause 
+
+            Son muy importantes junto con el límite de tiempo en cuanto a \textit{qué tan eficiente debe ser una solución} para resolver el problema. \pause 
+
+            En efecto, según la cota asintótica superior de la solución, la cantidad de operaciones que realiza respecto a la entrada puede ser o no suficiente para correr en el tiempo límite establecido para el problema, y nuestra elección depende de qué sea ``más rápido'' (como cuando discutimos elegir selection vs merge sort).\pause
+            \begin{center}
+                \includegraphics[width=.4\linewidth]{./ou_restrictions.png}
+            \end{center}\pause
+
+            En este caso, cada caso de prueba tiene a lo sumo $1,000,000 = 10^6$ números, cada uno con un valor entre $1$ y $100$.
         \end{enumerate}
+    \end{frame}
+ 
+    \begin{frame}[noframenumbering]
+        \begin{enumerate}
+            \setcounter{enumi}{6}
+            \item \textbf{Subtareas}: Sólo existen en las competencias tipo ``IOI'' donde cada problema otorga hasta 100 puntos. Así, \textbf{no} hay subtareas en ICPC. \pause
+
+                Establecen restricciones adicionales al enunciado original de forma que si se sube una solución correcta bajo la restricción agregada, otorgan \textbf{puntaje parcial}, una cantidad menor a 100 puntos indicado al lado de la subtarea. \pause
+
+            \begin{center}
+                \includegraphics[width=.4\linewidth]{./ou_subtasks.png}
+            \end{center}\pause
+
+            Por ejemplo, para este problema, si lo resolvemos suponiendo que se dan \textbf{sólo dos números en la entrada} obtenemos 19 puntos. \pause De 100 puntos, 19 por algo sencillo no está mal, no? \pause
+
+            ``Sin más restricciones'' indica los puntos otorgados por encima de las otras subtareas, es decir, puntos que sólo podríamos obtener si se resuelve el problema correctamente sin restricciones adicionales al enunciado original, como dice el nombre.
+        \end{enumerate}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{enumerate}
+            \setcounter{enumi}{6}
+            \item \textbf{Subtareas} (cont.): En competencias tipo IOI es muy importante prestar atención a las subtareas, porque nos permiten obtener puntaje sin encontrar la solución del problema sin restricciones, que puede ser significativamente más difícil de pensar e incluso implementar. \pause \vspace{4pt}
+
+            La mayoría de jueces suelen contener más problemas tipo ICPC, es decir, que no incluyen subtareas. Más adelante mencionaremos qué jueces y en dónde contienen problemas de este tipo. \pause \vspace{4pt}
+
+            Una última consideración a tener en cuenta parte de cómo se suman los puntajes de las subtareas. \pause Usualmente el puntaje final obtenido para un problema parte de la suma de los puntajes máximos obtenidos entre todas las subtareas. Es decir, se pueden subir \textbf{múltiples soluciones} al problema, que lo resuelvan bajo las restricciones de distintas subtareas, y sumar sus puntajes. \pause Así, si mandamos una solución que suma 12ptos en una subtarea y 0 en otra, pero otra solución mandada suma 0 en la primera y 20 en la segunda, tendríamos 32ptos para el problema.
+        \end{enumerate}
+    \end{frame}
+
+    \subsection{Veredictos}
+    \begin{frame}
+        \tableofcontents[currentsection, currentsubsection]
+    \end{frame}
+
+    \begin{frame}[fragile]{Probemos la solución que propusimos}
+        Recordemos el enunciado y la solución propuesta al problema de antes:\pause
+
+        \begin{block}{Problema (En busca de la mayor diversión, omegaUp 13769)}
+            Nicolás quiere que le compren $N$ juguetes pero su mamá sólo le comprará $N-1$. El chico le asignó un nivel de diversión positivo a cada uno de los $N$ juguetes, dados por entrada. Queremos obtener la mayor diversión posible con $N-1$ juguetes de los $N$ dados.
+        \end{block}
+
+        \pause
+        \begin{minted}[fontsize=\scriptsize]{cpp}
+int n; cin >> n;
+vector<int> arr(n);
+for (int i = 0; i < n; i++) cin >> arr[i]; // Leemos los números
+
+int sum = 0, mini = arr[0];
+for (int i = 0; i < n; i++) // Obtenemos su suma y el mínimo entre ellos
+    sum += arr[i], mini = min(mini, arr[i]);
+
+cout << sum - mini << '\n'; // Imprimimos la suma restado el nro. más chico
+        \end{minted}
+        \pause
+
+        \begin{center}
+            \LARGE ¡Probemos subirlo al juez!
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{¿Y, juez?}
+        \pause
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{./ou_problem_mle.png}
+        \end{center} \pause
+
+        Nuestro primer veredicto! \pause Sacamos 82ptos (82\% del total en omegaUp), pero nos \textbf{excedimos del límite de memoria}. \pause 
+
+        Si recordamos las subtareas, significa que obtuvimos \textit{puntaje parcial}, sumando puntos de todas las subtareas menos la última ``sin restricciones'':
+
+        \begin{center}
+            \includegraphics[width=.25\linewidth]{./ou_subtasks.png}
+        \end{center}\pause
+
+        Es decir, nuestro código es correcto para $N = 2$, para $N \leq 1000$ y para $N \leq 40000$. 
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        Se acuerdan que habíamos dicho que el problema tiene trampa? \pause Bueno, acá está: el límite de memoria es muy bajo. \pause Esto explica un poco el número raro que habíamos visto... \pause
+
+        \begin{center}
+            \includegraphics[width=.6\linewidth]{./ou_ml.png}
+        \end{center} \pause
+
+        Si bien nos enfocamos en esta clase en analizar cuánto tiempo tarda en correr una solución, podemos ver brevemente por qué nos pasamos del límite de memoria.
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \setlength{\leftmargini}{12pt}
+        \begin{itemize}
+            \item Observemos que en la solución creamos un \mintinline{cpp}{vector<int>} de $N$ elementos. \pause Supongamos que nuestra solución ejecuta un caso con $N = 10^6$ números, la máxima posible según las cotas del problema (y una cantidad mayor a las subtareas donde sabemos que la solución es correcta). \pause
+
+            \item Entonces, como cada \mintinline{cpp}{int} ocupa 32 bits (4 bytes), un \mintinline{cpp}{vector<int>} de $N = 10^6$ elementos ocupa alrededor de $4 \cdot 10^6$ bytes, o sea, $4 \cdot 10^6 / 1024 \approx 3906$ KiB (kibibytes), que son $3906 / 1024 \approx 3.8147$ MiB (mebibytes). \pause
+
+            \item Si bien $3.8147$ MiB $<$ $4.8828125$ MiB, no son números muy lejanos entre sí, y un programa puede reservar algo de memoria adicional para funcionar correctamente (y también reservamos algunos \mintinline{cpp}{int} más, aunque el espacio que ocupan no es significante).
+        \end{itemize} \pause
+
+        Nos preguntamos entonces: ¿Existe una forma de usar menos memoria?
+    \end{frame}
+
+    \begin{frame}[fragile]{Una forma de usar menos memoria}
+        \begin{block}{Observación}
+            \pause
+            Cada número de la entrada está entre 1 y 100 (recordar las cotas). \pause Como un byte puede almacenar números en el intervalo $[-128, 127]$, cada número entra en un byte. \pause Entonces, podemos reemplazar nuestro \mintinline{cpp}{vector<int>} con un \mintinline{cpp}{vector<char>}!
+        \end{block} \pause
+
+        Así, teniendo cuidado de hacer \textbf{casts} a \mintinline{cpp}{int} cuando sea necesario: \pause
+
+        \begin{minted}[fontsize=\scriptsize]{cpp}
+int n; cin >> n;
+vector<char> arr(n);
+for (int i = 0; i < n; i++) {int x; cin >> x; arr[i] = x;}
+
+int sum = 0, mini = arr[0];
+for (int i = 0; i < n; i++)
+    sum += (int)arr[i], mini = min(mini, (int)arr[i]);
+
+cout << sum - mini << '\n';
+        \end{minted}
+
+        \begin{center}
+            \LARGE
+            ¿Probamos de nuevo?
+        \end{center}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{center}
+            \includegraphics[width=16pt]{drumroll.png}\includegraphics[width=16pt]{drumroll.png}\includegraphics[width=16pt]{drumroll.png}
+        \end{center} \pause
+
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{./ou_problem_ac_char.png}
+        \end{center} \pause
+
+        \textbf{\textcolor{green}{100 ptos}}! \pause Cuando nuestra solución es correcta (sin restricciones si el problema es tipo IOI), decimos que la solución fue \textit{\textcolor{green}{aceptada}}, o en inglés, \textbf{\textcolor{green}{Accepted}}, abreviado \textbf{\textcolor{green}{AC}}. \pause \vspace{4pt}
+
+        Por otro lado, el veredicto que tuvimos inicialmente suele recibir el nombre de \textit{límite de memoria excedida}, o en inglés, \textbf{Memory Limit Exceeded}, abreviado normalmente como \textbf{MLE}. \pause
+
+        Este veredicto no es tan común en IOI o OIA, porque el límite de memoria suele ser bastante alto, típicamente (aunque con excepciones) de 512 MiB, bastante más que los $\approx 4.8$ MiB de este problema. \pause 
+
+        Más aún, no es demasiado común que el límite de memoria sea un factor importante en la solución del problema, muchas veces siendo más relevante el límite de tiempo. \pause Es más fácil ``alcanzar primero'' el límite de tiempo procesando tanta información, que el de memoria.
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{./ou_problem_ac_char.png}
+        \end{center}
+
+        Otra cosa importante a remarcar es el uso de memoria de nuestro programa: $4.10$ MiB. \pause Si bien calculando, nuestra solución debería reservar alrededor de $1 \cdot 10^6$ bytes para el \mintinline{cpp}{vector<char>} que usamos, o sea, $\approx 0.95$ MiB, la cantidad reportada por omegaUp es significativamente más alta. \pause Esto puede ser por diversos factores, como que \mintinline{cpp}{std::vector} almacena otro tipo de información que ocupa memoria, entre otros elementos del funcionamiento de nuestro programa en C++ que requieren reservar más memoria de la esperada. \pause
+
+        Por este motivo, si obtenemos un veredicto \textbf{MLE}, debemos ser generosos en nuestra estimación de memoria utilizada, con el fin de tener cierto margen para que nuestra solución respete el límite de memoria del problema.
+    \end{frame}
+
+    \begin{frame}[fragile]{Otra forma de usar menos memoria}
+        \pause
+        \begin{block}{Observación}
+            Se pueden procesar los números sin almacenarlos en un \mintinline{cpp}{std::vector}.
+        \end{block} \pause
+        En efecto, como sólo queremos obtener la suma y el mínimo del arreglo, directamente podemos procesarlos a medida se los lee desde la entrada, sin crear un arreglo para almacenar los enteros:\pause
+
+        \begin{minted}[fontsize=\scriptsize]{cpp}
+int n; cin >> n;
+int sum = 0;
+int mini = 150; // 150 es más grande que cualquier elem. de la entrada
+for (int i = 0; i < n; i++) {
+    int x; cin >> x;
+    sum += x, mini = min(mini, x);
+}
+cout << sum - mini << '\n';
+        \end{minted}
+        \pause
+
+        Cuando lo subimos al juez la solución es correcta y consume \textbf{aún menos} memoria: \pause
+        \begin{center}
+            \includegraphics[width=.8\linewidth]{./ou_problem_ac_novec.png}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Seguimos recordando problemas...}
+        El problema de antes no es el único que introdujimos en la sección de complejidad: \pause
+
+        \begin{block}{Problema (Watermelon, CodeForces 4A)}
+            Pete y Billy quieren dividir una sandía de peso $w$ kg en dos pedazos con peso \textbf{par}. Dado $w$, ¿es posible?
+        \end{block} \pause
+
+        El juez es otro ahora: \pause
+
+        \begin{center}
+            \href{https://codeforces.com/}{\includesvg[width=.6\linewidth]{cf_logo.svg}}
+        \end{center} \pause 
+
+        Es uno de los jueces más populares, con muchos problemas (tipo ICPC), competencias de alta calidad organizadas de forma regular y un sistema de rating. \pause \vspace{-4pt}
+
+        \begin{center}
+            \LARGE
+            ¡Busquemos el problema en el juez!
+        \end{center}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        Identifiquemos lo importante: \pause
+        \begin{itemize}
+            \item \textbf{TL}: 1 segundo \pause
+            \item \textbf{ML}: 64MB (acá son megabytes, no mebibytes) \pause
+            \item \textbf{Enunciado}: Ya lo sabemos, la dada en la diapositiva anterior es una versión digerida del original. \pause
+            \item \textbf{Entrada y Cotas}: Un entero $w$ con $1 \leq w \leq 100$. \pause
+            \item \textbf{Salida}: Imprimir \texttt{YES} o \texttt{NO} según si se puede dividir la sandía. \pause
+            \item \textbf{Ejemplo}: 
+                \begin{center}
+                    \includegraphics[height=.2\textheight]{./cf_example.png}
+                \end{center} \pause
+                Una explicación del ejemplo está en la sección \textit{Note}:
+
+                \begin{center}
+                    \includegraphics[width=.9\linewidth]{./cf_note.png}
+                \end{center} \pause
+            \item \textbf{Subtareas}: \textbf{No hay}, es estilo ICPC.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Otra solución con un problema}
+        Recordemos la solución que propusimos al problema: \pause
+
+        \begin{minted}[fontsize=\small]{cpp}
+int w; cin >> w;
+if ((w%2) == 0)
+    cout << "YES"; 
+else
+    cout << "NO"; 
+        \end{minted}
+        \pause
+
+        \begin{center}
+            \LARGE
+            ¡Probemos subirlo al juez!
+        \end{center} \pause
+
+        \begin{center}
+            \includegraphics[width=.95\linewidth]{./cf_wa.png}
+        \end{center}\pause
+
+        Obtuvimos un nuevo veredicto: \textbf{\textcolor{red}{Wrong Answer}} (abreviado como \textbf{\textcolor{red}{WA}}), es decir, \textit{\textcolor{red}{respuesta incorrecta}}. \pause
+
+        Esto significa que nuestra solución es incorrecta, pero no porque hayamos excedido algún límite, sino porque nuestra solución en algún caso de prueba imprime una respuesta que \textbf{no es correcta} según el enunciado.
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        Un \textcolor{red}{Wrong Answer} es uno de los veredictos más comunes. Nuestra solución puede estar imprimiendo una respuesta incorrecta por uno (o ambos) de dos motivos principales: \pause
+
+        \begin{itemize}
+            \item La solución que pensamos al problema es incorrecta, no lo resuelve siempre. \pause
+
+            \item Nuestra implementación de la solución tiene un error, un \textbf{bug}, que hace que no represente la idea que queremos reflejar en código. \pause
+        \end{itemize}
+
+        Por supuesto, hay variantes a estos motivos. Hay casos donde la idea está ``casi bien'', y capaz nos falta considerar un caso muy específico en nuestro código, por ejemplo para entradas muy chicas ($n=0$, $n=1$, etc, si el problema lo permite). A este tipo de casos los conocemos como \textbf{casos borde}. \pause
+
+        Curiosamente, es precisamente un caso borde lo que hace que nuestra solución al problema anterior falle.
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        Pensemos por un momento: ¿basta sólo con que el peso de la sandía sea par para poder dividirla en dos pedazos pares? \pause
+
+        Dedujimos esto porque vimos que si es posible, como la suma de dos núemros pares es par, entonces $w$ debe ser par. Pero esto no implica que sea al revés.\pause
+
+        En efecto, sabemos que $1 \leq w \leq 100$, entonces $w = 2$ es una posible entrada a nuestro programa: \pause
+            \begin{itemize}
+                \item $w = 2$ es par, entonces nuestra solución anterior imprimiría que la sandía \textbf{sí} se puede dividir en dos pedazos pares.\pause
+                \item Sin embargo, la única forma de dividir la sandía en dos partes con peso \textit{entero} es que ambas pesen $1$kg, por lo que \textbf{no} se la puede dividir en pedazos de peso par.\pause
+            \end{itemize}
+
+        Encontramos nuestro caso borde! \pause ¿Pero cómo lo resolvemos? ¿Es el único caso donde nuestra solución estaba mal?
+    \end{frame}
+
+    \begin{frame}[fragile]{En busca de otro \textbf{AC}}
+        Analicemos lo que sabemos: \pause
+        \begin{itemize}
+            \item $w$ \textbf{tiene} que ser par para que la respuesta sea \texttt{YES}. \pause
+            \item Si $w=2$, la respuesta es \texttt{NO}. \pause
+        \end{itemize}
+
+        Así, veamos que si $w>2$ y $w$ par, la respuesta es siempre \texttt{YES}. \pause 
+
+        Esto se debe a que, si $w$ cumple las condiciones, en particular $w \geq 4$, entonces se puede dividir a $w$ en un pedazo de peso $2$kg, y otro de peso $(w-2)$kg, que será positivo y par porque restamos dos números pares. \pause
+
+        De esta forma, sólo debemos cubrir el caso borde mencionado en la solución antes presentada: \pause \vspace{4pt}
+
+        \begin{minipage}{.49\linewidth}
+        \begin{minted}[fontsize=\scriptsize]{cpp}
+int w; cin >> w;
+if ((w%2) == 0 && w != 2)
+    cout << "YES";
+else
+    cout << "NO";
+        \end{minted}
+        \end{minipage}\pause
+        \begin{minipage}{.49\linewidth}
+        \begin{center}
+            \LARGE
+            ¿Probamos de nuevo?
+        \end{center}
+        \end{minipage}
+        \pause
+
+        \begin{center}
+            \includegraphics[width=.95\linewidth]{./cf_ac.png}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Un juez más, y no podemos más!}
+        Tanto decir que es importante que nuestro programa vaya rápido, veamos ahora cómo el juez nos informa que nuestro programa excedió el \textit{límite de tiempo del problema}. Para ello, aprovechemos otro problema más que introdujimos antes: \pause
+
+        \begin{block}{Problema (Nearest Smaller Values, CSES 1645)}
+            Dado un arreglo de $n$ enteros, encontrar para cada posición del arreglo la posición más cercana a su izquierda que tenga un menor valor a la primera. $1 \leq n \leq 2 \cdot 10^5$
+        \end{block} \pause
+
+        Otro juez más:\pause
+        \begin{center}
+            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{cses_logo.png}}
+        \end{center} 
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{center}
+            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{cses_logo.png}}
+        \end{center} \pause
+
+        Es un juez utilizado en Finlandia para organizar competencias que tiene un conjunto de problemas reducido pero de muy buena calidad, orientados a educar en diversos temas de Programación Competitiva. \pause \vspace{4pt}
+
+        Uno de sus principales desarrolladores es Antti Laaksonen, escritor del libro ``\textit{Guide To Competitive Programming}''. Muchos de los problemas y soluciones que describe en el libro pueden resolverse en CSES. \pause
+
+        \begin{center}
+            \LARGE
+            ¡Busquemos el problema en el juez!
+        \end{center}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        No es problema identificar las partes del problema en CSES. \pause 
+
+        Lo que más nos interesa es que el \textbf{TL} es 1s, y el \textbf{ML} es 512MB, números muy comunes para problemas de Programación Competitiva. \pause 
+
+        Además no hay subtareas, es estilo ICPC. \pause \vspace{4pt}
+
+        En la sección de análisis amortizado (\textit{si no la salteamos por tiempo}) vimos una solución en $\mathcal{O}(n)$ que resuelve este problema. Dicha solución es correcta y mandarla al juez resulta en un veredicto \textbf{\textcolor{green}{Accepted}}, se los prometo. \pause
+
+        Lo que nos vamos a enfocar es ver qué pasa si mandamos una solución que es muy lenta, como una que corre en $\mathcal{O}(n^2)$. 
+    \end{frame}
+
+    \begin{frame}[fragile]{Cuando nos pasamos de tiempo}
+        Proponemos la siguiente solución ``ingenua'' o \textit{naive} al problema, que corre en $\mathcal{O}(n^2)$: \pause \vspace{4pt}
+    
+    \begin{minted}[fontsize=\scriptsize]{cpp}
+vector<int> arr(n);
+for (int i = 0; i < n; i++)
+    cin >> arr[i];
+
+for (int i = 0; i < n; i++) {
+    int nsv = -1;
+    for (int j = i-1; j >= 0 && nsv == -1; j--)
+        if (arr[j] < arr[i])
+            nsv = j;
+    cout << nsv+1 << ' ';
+}
+    \end{minted}
+    \pause
+
+        Siendo $1 \leq n \leq 2 \cdot 10^5$, la cantidad de operaciones que ejecuta una solución con una cota asintótica tal supera ampliamente el rule of thumb que conocemos para que el programa termine en 1s. \pause
+
+    \begin{center}
+        \LARGE
+        ¡Probemos subirlo al juez!
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{center}
+            \includegraphics[width=.4\linewidth]{./cses_tle.png}
+        \end{center}
+        \pause
+
+        Nuevo veredicto adquirido: \textbf{Time Limit Exceeded} (abreviado normalmente como \textbf{TLE}), o en español, \textit{tiempo límite excedido}. Como dice su nombre, nos indica que en al menos uno de los casos nuestra solución tardó más de 1s en ejecutarse para la entrada dada.
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        A diferencia de CodeForces donde sólo se ejecutan los casos en orden y se detiene la ejecución apenas falla en alguno, en CSES se ejecutan todos los casos sin importar si alguno ``anterior'' falló. \pause Más aún, se pueden ver y descargar los casos para verlos e intentar resolver los problemas en nuestro código. \pause \textbf{NO hay que acostumbrarse a esto}, en las competencias \textbf{NO} podemos ver los casos de prueba, y tampoco en muchos jueces: \pause
+
+        \begin{itemize}
+            \item omegaUp nunca deja ver los casos, y a veces tampoco qué subtareas funcionaron, a menos que se haya resuelto el problema antes con 100ptos. \pause
+            \item CodeForces deja ver los casos de prueba sólo en modo práctica (no en competencia), e incluso así están recortados, impidiendo ver la totalidad de casos grandes.\pause
+            \item El \textbf{OIA Juez} nunca deja ver los casos, aunque sí las subtareas, sus puntajes correspondientes al total obtenido, e incluso a veces el veredicto obtenido en los casos de la subtarea.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Un último veredicto no menos importante}
+        Finalmente, vamos a introducir un último veredicto no menos importante a los ya vistos: el \textbf{Runtime Error} (abreviado \textbf{RE} o \textbf{RTE}), o en español, \textit{error de ejecución}. \pause
+
+        ¿Alguna vez les pasó que ejecutaron un programa en C++ y terminó abruptamente con \texttt{Segmentation fault (core dumped)}? \pause Si nuestro programa ``crashea'' ejecutando algún caso en el juez, el veredicto mostrado será entonces \textit{Runtime Error}. \vspace{4pt} \pause
+
+        El origen de un error de este tipo es claramente por un problema en la implementación de la solución, un bug en la programación. El más común de estos errores es ``acceder a una posición fuera de memoria'', por ejemplo, tener un \mintinline{cpp}{vector<int>} con tamaño $n$ y querer acceder/escribir en algún punto a \texttt{arr[n]} (inválido porque está indexado en 0), o a \texttt{arr[-1]}.
+    \end{frame}
+
+    \begin{frame}{\textbf{RE} en algunos jueces}
+        A veces los runtime error no están marcados de forma clara en los jueces. Presentamos algunos ejemplos para que sepan identificarlos:\pause
+        \setlength{\leftmargini}{16pt}
+        \begin{itemize}
+            \item \textbf{omegaUp}: ``Error de ejecución''
+            \begin{center}
+                \includegraphics[width=.8\linewidth]{./ou_rte.png}
+            \end{center}
+
+            \item \textbf{CodeForces}: ``Runtime error on test ...''
+            \begin{center}
+                \includegraphics[width=.8\linewidth]{./cf_rte.png}
+            \end{center}
+            
+            \item \textbf{OIA Juez}: ``Execution killed (could be triggered by violating memory limits)''
+            \begin{center}
+                \includegraphics[width=.8\linewidth]{./oiaj_rte.png}
+            \end{center}
+
+            \item \textbf{SPOJ}: ``runtime error (SIGSEGV)''
+            \begin{center}
+                \includegraphics[width=.8\linewidth]{./spoj_rte.png}
+            \end{center}
+        \item 
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Recapitulando}
+        Tenemos entonces los siguientes veredictos principales posibles: \pause
+
+        \begin{itemize}
+            \item \textbf{\textcolor{green}{Accepted}}: Nuestra solución resuelve todos los casos de prueba correctamente y en los límites estipulados.\pause
+            \item \textbf{TLE}: Nuestra solución excede el límite de \textit{tiempo} estipulado en algún caso de prueba.\pause
+
+            \item \textbf{MLE}: Nuestra solución excede el límite de \textit{memoria} estipulado en algún caso de prueba.\pause
+
+            \item \textbf{\textcolor{red}{WA}}: Nuestra solución no excede ninguno de los límites estipulados, pero escribe una respuesta incorrecta en alguno de los casos de prueba. \pause
+        \end{itemize}
+
+        Y además, en problemas tipo IOI, los problemas pueden tener puntaje parcial, donde cada subtarea tiene su propio veredicto, y las subtareas \textbf{\textcolor{green}{AC}} otorgan puntos según sea indicado. El veredicto general que se muestra depende del juez, pero no tomará \textbf{\textcolor{green}{AC}} si no todas las subtareas son \textbf{\textcolor{green}{AC}}.
+    \end{frame}
+
+    \begin{frame}
+        \begin{alertblock}{$\mathcal{O}$J$\mathcal{O}$!}
+            \pause
+            En algunos casos también las subtareas pueden tener puntaje parcial. Por ejemplo, el enunciado puede consistir en imprimir dos líneas, una con un resultado y otra con ``una forma de obtener ese resultado'' (según el contexto del problema), y se indica algo como que ``Se otorga el 50\% del puntaje si se imprime correctamente la primer línea, y el 50\% restante si se imprime correctamente la segunda''. \pause \vspace{4pt}
+
+            En estos casos hay que prestar atención al enunciado, pero indica que también puede haber puntaje parcial más allá de las subtareas. Es decir, si el enunciado tiene un mensaje como el ejemplo anterior, suele pasar que el puntaje de cada subtarea se divide a la mitad, donde se otorga cada mitad del puntaje \textit{de la subtarea} según las líneas que se hayan impreso correctamente. 
+
+            Por supuesto, hay que ver cada caso y leer el reglamento de la competencia (por ejemplo OIA).
+        \end{alertblock}
+    \end{frame}
+
+
+    \subsection{omegaUp: competencias}
+    \begin{frame}
+        \tableofcontents[currentsection, currentsubsection]
     \end{frame}
 
     \begin{frame}{Competencias (concursos)}
@@ -1516,17 +1988,75 @@ while (arr[j] >= arr[i])
         Como podemos ver, hay muchas competencias no relacionadas creadas por usuarios del sitio, en muchos casos para sus propios propósitos. \pause Dependiendo la competencia, también puede requerirse aprobación del autor para participar (por ejemplo, para la OII).
     \end{frame}
 
-
     \begin{frame}[noframenumbering]
-        %TODO: Buscar ToJuPro? O algún otro? Mostrar en vivo sino?
-        TODO: Buscar ToJuPro? O algún otro? Mostrar en vivo sino?
+        \begin{center}
+            \LARGE
+            ¡Entremos a un concurso y mostremos cómo funciona!
+        \end{center}
     \end{frame}
-
-    %TODO: Eliminar referencias a certamen escolar (pero agregar algo para mí para acordarme mencionarlo). Repasar el doc entero y LIMPIAR!
-
-    \subsection{Veredictos y otros jueces}
+    
+    \subsection{Otros jueces}
     \begin{frame}
         \tableofcontents[currentsection, currentsubsection]
+    \end{frame}
+
+    \begin{frame}{Hay para elegir}
+        Como habrán visto, hay muchísimos jueces para elegir. Además de los ya presentados, recomendamos también los siguientes, donde algunos ya los mencionamos: \pause
+
+        \begin{itemize}
+            \item \textbf{\textcolor{blue}{\href{https://juez.oia.unsam.edu.ar/}{OIA Juez}}}: Contiene problemas tipo IOI de las distintas instancias de la Olimpíada Informática Argentina de distintos años (Prog. Competitiva nivel secundario). Tiene muchos problemas muy buenos, incluyendo algunos interesantes para arrancar. Personalmente recomendado. \pause
+
+            \item \textbf{\textcolor{blue}{\href{https://codeforces.com/gyms}{CodeForces Gym}}}: Además del set de problemas normal de CodeForces, la sección de ``Gym'' contiene, de forma similar a omegaUp, competencias subidas por los usuarios. Muchas de éstas incluyen copias de instancias regionales ICPC (Prog. Competitiva nivel universitario) de todo el mundo, incluyendo World Finals, siendo un recurso valiosísimo para entrenar en equipo.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{itemize}
+            \item \textbf{\textcolor{blue}{\href{https://onlinejudge.org/}{UVa Online Judge}}}: Juez de antaño que data desde antes del año 2000. Contiene problemas de ICPC antiguos y un set de problemas diversos muy extenso. Muchos de sus problemas y soluciones están mencionados en la famosa serie de libros ``Competitive Programming'', de Steven y Felix Halim. \pause
+
+            \item \textbf{\textcolor{blue}{\href{https://open.kattis.com/}{Kattis}}}: Un juez más reciente con algunos problemas interesantes, también citado por Steven y Felix Halim en su edición más reciente de su serie de libros de programación competititva, el ``Competitive Programming 4''.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Otros otros jueces}
+        También mencionamos algunos jueces más con los cuales se pueden encontrar algún que otro problema de calidad, o problemas clásicos conocidos: \pause
+
+        \begin{itemize}
+            \item \textbf{\textcolor{blue}{\href{https://www.spoj.com/}{Sphere Online Judge (SPOJ)}}}: Conocido por problemas clásicos como DQUERY o KQUERY, al igual que algunos problemas viejos de instancias de ICPC de la UBA.
+            \item \textbf{\textcolor{blue}{\href{https://www.hackerrank.com/contests}{HackerRank}}}: Conocido por su facilidad para armar contests, pueden encontrárselo alguna vez para competencias con problemas personalizados.
+            \item \textbf{\textcolor{blue}{\href{https://atcoder.jp/}{AtCoder}}}: Juez de origen japonés con competencias regulares los sábados o domingos a la mañana (hora Argentina). Suele contener problemas distintos a otros lugares y algo creativos, con algunos problemas sencillos pero que suben de dificultad rápidamente.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{itemize}
+            \item \textbf{\textcolor{blue}{\href{https://dmoj.ca/}{DMOJ}}}: Conocido por contener problemas de algunas IOIs viejas.
+            \item \textbf{\textcolor{blue}{\href{https://oj.uz/problems}{oj.uz}}}: Conocido por contener problemas de distintas instancias regionales de competencias tipo IOI, incluyendo IOIs viejas.
+            \item \textbf{\textcolor{blue}{\href{https://www.facebook.com/codingcompetitions/hacker-cup/2019}{Meta Hacker Cup}}}: Meta (Facebook) lleva a cabo una competencia de programación competitiva todos los años con problemas interesantes. Consultar el registro de problemas de años anteriores puede ser entretenido.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Comodín}
+        También puede ser útil usar herramientas como \textbf{\textcolor{blue}{\href{https://vjudge.net/}{vJudge}}}, que recopilan problemas de múltiples jueces online, y permite crear competencias personalizadas con problemas de distintas fuentes.
+    \end{frame}
+
+    \section{Cierre}
+    \begin{frame}
+        \tableofcontents[currentsection]
+    \end{frame}
+
+    \begin{frame}
+        \begin{center}
+            \LARGE
+            ¿Preguntas? ¿Dudas?
+        \end{center}
+    \end{frame}
+
+    \begin{frame}
+        \begin{center}
+            \Huge
+            ¡Muchas gracias!
+        \end{center}
     \end{frame}
 
 \end{document}

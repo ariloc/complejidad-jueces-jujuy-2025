@@ -435,9 +435,9 @@ else
 
         \begin{itemize}
 
-            \item Si la mediana del arreglo (\texttt{arr[n/2]}) es mayor o igual al número $x$, como los elementos en posiciones más grandes son todos mayores, sabemos que el número buscado está en en el intervalo $[0, \lfloor\frac{n}{2}\rfloor]$, descartando los últimos $\lceil\frac{n}{2}\rceil-1$ elementos. \pause 
+            \item Si la mediana del arreglo (\texttt{arr[(n-1)/2]}) es mayor o igual al número $x$, como los elementos en posiciones más grandes son todos mayores, sabemos que el número buscado está en en el intervalo $(-1, \lfloor\frac{n-1}{2}\rfloor]$, descartando los últimos $\lfloor\frac{n}{2}\rfloor$ elementos. \pause 
 
-            \item Análogamente, si su mediana es menor a $x$, como todos los elementos en posiciones más chicas son también menores a $x$, sabemos que el número buscado está en el intervalo $[\lfloor \frac{n}{2} \rfloor, n-1]$, descartando los primeros $\lceil\frac{n}{2}\rceil$ elementos.
+            \item Análogamente, si su mediana es menor a $x$, como todos los elementos en posiciones más chicas son también menores a $x$, sabemos que el número buscado está en el intervalo $(\lfloor \frac{n-1}{2} \rfloor, n)$, descartando los primeros $\lceil\frac{n}{2}\rceil$ elementos.
         \end{itemize}
     \end{frame}
     
@@ -446,13 +446,14 @@ else
 int x;
 vector<int> arr(n); // Suponemos que está ordenado
 // ...
-int lo = -1, hi = n-1;
+int lo = -1, hi = n;
 while (hi-lo > 1) {?\tikzmark{binarycmp}?
     int mid = (hi+lo)/2;?\tikzmark{binaryops1}?
     if (arr[mid] >= x) hi = mid;
     else lo = mid;?\tikzmark{binaryops2}?
 }
-// El menor número mayor o igual a x está en arr[hi]
+// El menor número mayor o igual a x está en arr[hi].
+// Si no existe, termina con hi = n.
         \end{minted}
         \vspace{4pt}
         \uncover<5->{De esta forma, corre en $\mathcal{O}(log \, n)$! (recordemos que la base del logaritmo no importaba)}
@@ -504,7 +505,7 @@ while (hi-lo > 1) {?\tikzmark{binarycmp}?
         \begin{minted}[fontsize=\scriptsize,escapeinside=??]{cpp}
 int n; cin >> n;
 vector<int> arr(n);
-for (int i = 0; i < n; i++) // Leeemos los números
+for (int i = 0; i < n; i++) // Leemos los números
     cin >> arr[i];
 ?\pause?
 int sum = 0, mini = arr[0];
@@ -711,7 +712,7 @@ void split(vector<int> &arr, int l, int r) {
                 \begin{tikzpicture}
                     \node[draw] (a) at (0,0) {\small\texttt{split(arr,0,n)}};
                     \node[draw] (b) at (-2,-1) {\small\texttt{split(arr,0,n/2)}};
-                    \node[draw] (c) at (2,-1) {\small\texttt{split(arr,n/2,0)}};
+                    \node[draw] (c) at (2,-1) {\small\texttt{split(arr,n/2,n)}};
                     \node[label={[xshift=-5pt,yshift=-3pt]0:$\vdots$}] (d) at (-3,-2) {};
                     \node[label={[xshift=5pt,yshift=-3pt]180:$\vdots$}] (e) at (-1,-2) {};
                     \node[label={[xshift=-5pt,yshift=-3pt]0:$\vdots$}] (f) at (1,-2) {};
@@ -1531,7 +1532,20 @@ while (arr[j] >= arr[i])
 
             La mayoría de jueces suelen contener más problemas tipo ICPC, es decir, que no incluyen subtareas. Más adelante mencionaremos qué jueces y en dónde contienen problemas de este tipo. \pause \vspace{4pt}
 
-            Una última consideración a tener en cuenta parte de cómo se suman los puntajes de las subtareas. \pause Usualmente el puntaje final obtenido para un problema parte de la suma de los puntajes máximos obtenidos entre todas las subtareas. Es decir, se pueden subir \textbf{múltiples soluciones} al problema, que lo resuelvan bajo las restricciones de distintas subtareas, y sumar sus puntajes. \pause Así, si mandamos una solución que suma 12ptos en una subtarea y 0 en otra, pero otra solución mandada suma 0 en la primera y 20 en la segunda, tendríamos 32ptos para el problema.
+            Una última consideración a tener en cuenta parte de cómo se suman los puntajes de las subtareas. 
+        \end{enumerate}
+    \end{frame}
+
+    \begin{frame}[noframenumbering]
+        \begin{enumerate}
+            \setcounter{enumi}{6}
+            \item \textbf{Subtareas} (cont.): Hay dos formas usuales en las que se maneja la suma de los puntajes de las subtareas en las competencias y jueces online: \pause
+                \begin{itemize}
+                    \setlength\itemsep{.15em}
+                    \item Una forma es que se puedan subir \textbf{múltiples soluciones} a un problema, y que se sumen los mejores puntajes por subtarea entre las distintas soluciones subidas \pause (por ejemplo, selectivo de OIA e IOI). \pause
+                    \item Otra forma más clásica es que simplemente se tome el mayor puntaje entre todas las subidas, y que sea responsabilidad del competidor \textbf{detectar} la subtarea en función de la entrada en el código, a fin de ejecutar la solución correspondiente a la subtarea que hayamos pensado, y sumar los puntos respectivos \pause (por ejemplo, omegaUp, y en particular, el Torneo Jujeño de Programación). \pause
+                \end{itemize}
+            Idealmente deben consultar el reglamento de la competencia y el funcionamiento del juez en cada caso.
         \end{enumerate}
     \end{frame}
 

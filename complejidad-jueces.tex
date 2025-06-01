@@ -1310,7 +1310,7 @@ while (arr[j] >= arr[i])
 
     \begin{frame}{¿Qué es omegaUp?}
         \begin{center}
-            \href{https://omegaup.com/}{\includegraphics[width=.4\linewidth]{./omegaup_curves.png}}
+            \href{https://omegaup.com/}{\includegraphics[width=.4\linewidth]{./res/omegaup_curves.png}}
         \end{center}\pause
 
         \textbf{omegaUp} es un juez online muy utilizado en México que permite fácilmente crear competencias y subir problemas nuevos con distintos formatos. Debido a su conveniencia, se lo utiliza para llevar a cabo el Torneo Jujeño de Programación, por ejemplo. \pause
@@ -1328,7 +1328,7 @@ while (arr[j] >= arr[i])
 
     \begin{frame}{Página principal}
         \begin{center}
-            \includegraphics[width=.8\linewidth]{./ou_topbar.png}\tikzmark{ou_topbar}
+            \includegraphics[width=.8\linewidth]{./res/ou_topbar.png}\tikzmark{ou_topbar}
         \end{center} \pause
         En la barra superior de la página, sólo nos van a interesar las secciones de ``Problemas'' y ``Concursos''.
         \begin{tikzpicture}[overlay, remember picture]
@@ -1342,7 +1342,7 @@ while (arr[j] >= arr[i])
 
     \begin{frame}{Explorando problemas}
         \begin{minipage}{.35\linewidth}
-            \includegraphics[width=.9\linewidth]{./ou_problem_bar.png}
+            \includegraphics[width=.9\linewidth]{./res/ou_problem_bar.png}
         \end{minipage}\pause
         \begin{minipage}{.64\linewidth}
             Al hacer click en la pestaña de Problemas, podemos ver la lista de todos los problemas disponibles en el juez entrando a ``Lista de Problemas''.
@@ -1351,7 +1351,7 @@ while (arr[j] >= arr[i])
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=.8\linewidth]{./ou_problems.png}\tikzmark{ou_problems}
+            \includegraphics[width=.8\linewidth]{./res/ou_problems.png}\tikzmark{ou_problems}
         \end{center} \pause
         
         \begin{tikzpicture}[overlay, remember picture]
@@ -1374,19 +1374,19 @@ while (arr[j] >= arr[i])
         Si recordamos, ya habíamos visto un problema de omegaUp en la sección de complejidad... \pause probemos buscarlo por nombre en el buscador a ver si aparece. \pause
 
         \begin{center}
-            \includegraphics[width=.35\linewidth]{./ou_partial_search.png}
+            \includegraphics[width=.35\linewidth]{./res/ou_partial_search.png}
         \end{center} \pause
 
         Como es de esperarse, aparece listado incluso mientras escribimos su título. \pause
 
         \begin{center}
-            \includegraphics[width=\linewidth]{./ou_searched.png}
+            \includegraphics[width=\linewidth]{./res/ou_searched.png}
         \end{center} 
     \end{frame}
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=\linewidth]{./ou_searched.png}\tikzmark{ou_searched}
+            \includegraphics[width=\linewidth]{./res/ou_searched.png}\tikzmark{ou_searched}
         \end{center} \pause
         \begin{tikzpicture}[remember picture, overlay]
             \coordinate (a) at (pic cs:ou_searched);
@@ -1421,7 +1421,7 @@ while (arr[j] >= arr[i])
             \item \textbf{Título} / nombre del problema \pause
             \begin{center}
                 \fbox{
-                    \includegraphics[width=.4\linewidth]{./ou_problem_title.png}
+                    \includegraphics[width=.4\linewidth]{./res/ou_problem_title.png}
                 }
             \end{center}\pause
 
@@ -1440,14 +1440,14 @@ while (arr[j] >= arr[i])
             \item \textbf{Límite de tiempo} (por caso): (cont.) En el problema: \pause
 
             \begin{center}
-                \includegraphics[width=.6\linewidth]{./ou_tl.png}
+                \includegraphics[width=.6\linewidth]{./res/ou_tl.png}
             \end{center} \pause
 
             En este problema, cada caso tiene un tiempo límite de 1s para ejecutarse. De lo contrario, la solución se considerará \textbf{incorrecta}. En breve veremos cómo el juez no comunica esto.
 
         \item \textbf{Límite de memoria} (por caso): \pause De forma análoga al time limit, existe el \textbf{memory limit} (a veces abreviado \textit{ML}) o \textit{límite de memoria}, que es la cantidad de memoria que el programa puede reservar durante la ejecución de cada caso de prueba. \pause En el problema: \pause
             \begin{center}
-                \includegraphics[width=.6\linewidth]{./ou_ml.png}
+                \includegraphics[width=.6\linewidth]{./res/ou_ml.png}
             \end{center} \pause
 
             Es decir, en este problema, al correr cada caso nuestra solución puede reservar a lo sumo 4.8828125 MiB. \pause Número raro...
@@ -1460,7 +1460,7 @@ while (arr[j] >= arr[i])
             \item \textbf{Descripción del problema}: \pause
 
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./ou_description.png}
+                \includegraphics[width=.8\linewidth]{./res/ou_description.png}
             \end{center} \pause
 
         \item \textbf{Entrada}: \pause Suele incluir detalles específicos sobre cómo se provee la información del problema al programa que implementemos. \pause
@@ -1468,7 +1468,7 @@ while (arr[j] >= arr[i])
             Dependiendo del juez / origen, también puede contener las \textbf{cotas} del problema, que en este caso se encuentran por separado más abajo. \pause
 
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./ou_input.png}
+                \includegraphics[width=.8\linewidth]{./res/ou_input.png}
             \end{center}
         \end{enumerate}
     \end{frame}
@@ -1479,13 +1479,13 @@ while (arr[j] >= arr[i])
             \item \textbf{Salida}: \pause De forma análoga a la entrada, especifica detalles sobre cómo escribir el resultado de resolver el problema para la entrada dada. En algunos casos presenta información más importante como ``qué solución imprimir'' si es que hay varias o qué imprimir si una solución ``no existe'' (según el problema). \pause
 
             \begin{center}
-                \includegraphics[width=.7\linewidth]{./ou_output.png}
+                \includegraphics[width=.7\linewidth]{./res/ou_output.png}
             \end{center}\pause
 
         \item \textbf{Ejemplo(s)}: \pause Casi siempre los problemas contienen uno o más ejemplos (\textbf{samples}, en inglés) de entrada y salida válidos para una solución del problema, con el fin de comprender correctamente el formato de ambos o incluso aclarar el enunciado. \pause
 
             \begin{center}
-                \includegraphics[width=.4\linewidth]{./ou_sample.png}
+                \includegraphics[width=.4\linewidth]{./res/ou_sample.png}
             \end{center}\pause
 
             En omegaUp también suelen incluir una \textit{Descripción} al lado de los ejemplos, explicando los resultados presentados. Otros jueces suelen incluir esto en una sección separada llamada \textit{Notas}. 
@@ -1501,7 +1501,7 @@ while (arr[j] >= arr[i])
 
             En efecto, según la cota asintótica superior de la solución, la cantidad de operaciones que realiza respecto a la entrada puede ser o no suficiente para correr en el tiempo límite establecido para el problema, y nuestra elección depende de qué sea ``más rápido'' (como cuando discutimos elegir selection vs merge sort).\pause
             \begin{center}
-                \includegraphics[width=.4\linewidth]{./ou_restrictions.png}
+                \includegraphics[width=.4\linewidth]{./res/ou_restrictions.png}
             \end{center}\pause
 
             En este caso, cada caso de prueba tiene a lo sumo $1,000,000 = 10^6$ números, cada uno con un valor entre $1$ y $100$.
@@ -1516,7 +1516,7 @@ while (arr[j] >= arr[i])
                 Establecen restricciones adicionales al enunciado original de forma que si se sube una solución correcta bajo la restricción agregada, otorgan \textbf{puntaje parcial}, una cantidad menor a 100 puntos indicado al lado de la subtarea. \pause
 
             \begin{center}
-                \includegraphics[width=.4\linewidth]{./ou_subtasks.png}
+                \includegraphics[width=.4\linewidth]{./res/ou_subtasks.png}
             \end{center}\pause
 
             Por ejemplo, para este problema, si lo resolvemos suponiendo que se dan \textbf{sólo dos números en la entrada} obtenemos 19 puntos. \pause De 100 puntos, 19 por algo sencillo no está mal, no? \pause
@@ -1583,7 +1583,7 @@ cout << sum - mini << '\n'; // Imprimimos la suma restado el nro. más chico
     \begin{frame}{¿Y, juez?}
         \pause
         \begin{center}
-            \includegraphics[width=.9\linewidth]{./ou_problem_mle.png}
+            \includegraphics[width=.9\linewidth]{./res/ou_problem_mle.png}
         \end{center} \pause
 
         Nuestro primer veredicto! \pause Sacamos 82ptos (82\% del total en omegaUp), pero nos \textbf{excedimos del límite de memoria}. \pause 
@@ -1591,7 +1591,7 @@ cout << sum - mini << '\n'; // Imprimimos la suma restado el nro. más chico
         Si recordamos las subtareas, significa que obtuvimos \textit{puntaje parcial}, sumando puntos de todas las subtareas menos la última ``sin restricciones'':
 
         \begin{center}
-            \includegraphics[width=.25\linewidth]{./ou_subtasks.png}
+            \includegraphics[width=.25\linewidth]{./res/ou_subtasks.png}
         \end{center}\pause
 
         Es decir, nuestro código es correcto para $N = 2$, para $N \leq 1000$ y para $N \leq 40000$. 
@@ -1601,7 +1601,7 @@ cout << sum - mini << '\n'; // Imprimimos la suma restado el nro. más chico
         Se acuerdan que habíamos dicho que el problema tiene trampa? \pause Bueno, acá está: el límite de memoria es muy bajo. \pause Esto explica un poco el número raro que habíamos visto... \pause
 
         \begin{center}
-            \includegraphics[width=.6\linewidth]{./ou_ml.png}
+            \includegraphics[width=.6\linewidth]{./res/ou_ml.png}
         \end{center} \pause
 
         Si bien nos enfocamos en esta clase en analizar cuánto tiempo tarda en correr una solución, podemos ver brevemente por qué nos pasamos del límite de memoria.
@@ -1648,11 +1648,11 @@ cout << sum - mini << '\n';
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=16pt]{drumroll.png}\includegraphics[width=16pt]{drumroll.png}\includegraphics[width=16pt]{drumroll.png}
+            \includegraphics[width=16pt]{./res/drumroll.png}\includegraphics[width=16pt]{./res/drumroll.png}\includegraphics[width=16pt]{./res/drumroll.png}
         \end{center} \pause
 
         \begin{center}
-            \includegraphics[width=.9\linewidth]{./ou_problem_ac_char.png}
+            \includegraphics[width=.9\linewidth]{./res/ou_problem_ac_char.png}
         \end{center} \pause
 
         \textbf{\textcolor{green}{100 ptos}}! \pause Cuando nuestra solución es correcta (sin restricciones si el problema es tipo IOI), decimos que la solución fue \textit{\textcolor{green}{aceptada}}, o en inglés, \textbf{\textcolor{green}{Accepted}}, abreviado \textbf{\textcolor{green}{AC}}. \pause \vspace{4pt}
@@ -1666,7 +1666,7 @@ cout << sum - mini << '\n';
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=.9\linewidth]{./ou_problem_ac_char.png}
+            \includegraphics[width=.9\linewidth]{./res/ou_problem_ac_char.png}
         \end{center}
 
         Otra cosa importante a remarcar es el uso de memoria de nuestro programa: $4.10$ MiB. \pause Si bien calculando, nuestra solución debería reservar alrededor de $1 \cdot 10^6$ bytes para el \mintinline{cpp}{vector<char>} que usamos, o sea, $\approx 0.95$ MiB, la cantidad reportada por omegaUp es significativamente más alta. \pause Esto puede ser por diversos factores, como que \mintinline{cpp}{std::vector} almacena otro tipo de información que ocupa memoria, entre otros elementos del funcionamiento de nuestro programa en C++ que requieren reservar más memoria de la esperada. \pause
@@ -1695,7 +1695,7 @@ cout << sum - mini << '\n';
 
         Cuando lo subimos al juez la solución es correcta y consume \textbf{aún menos} memoria: \pause
         \begin{center}
-            \includegraphics[width=.8\linewidth]{./ou_problem_ac_novec.png}
+            \includegraphics[width=.8\linewidth]{./res/ou_problem_ac_novec.png}
         \end{center}
     \end{frame}
 
@@ -1709,7 +1709,7 @@ cout << sum - mini << '\n';
         El juez es otro ahora: \pause
 
         \begin{center}
-            \href{https://codeforces.com/}{\includesvg[width=.6\linewidth]{cf_logo.svg}}
+            \href{https://codeforces.com/}{\includesvg[width=.6\linewidth]{./res/cf_logo.svg}}
         \end{center} \pause 
 
         Es uno de los jueces más populares, con muchos problemas (tipo ICPC), competencias de alta calidad organizadas de forma regular y un sistema de rating. \pause \vspace{-4pt}
@@ -1730,12 +1730,12 @@ cout << sum - mini << '\n';
             \item \textbf{Salida}: Imprimir \texttt{YES} o \texttt{NO} según si se puede dividir la sandía. \pause
             \item \textbf{Ejemplo}: 
                 \begin{center}
-                    \includegraphics[height=.2\textheight]{./cf_example.png}
+                    \includegraphics[height=.2\textheight]{./res/cf_example.png}
                 \end{center} \pause
                 Una explicación del ejemplo está en la sección \textit{Note}:
 
                 \begin{center}
-                    \includegraphics[width=.9\linewidth]{./cf_note.png}
+                    \includegraphics[width=.9\linewidth]{./res/cf_note.png}
                 \end{center} \pause
             \item \textbf{Subtareas}: \textbf{No hay}, es estilo ICPC.
         \end{itemize}
@@ -1759,7 +1759,7 @@ else
         \end{center} \pause
 
         \begin{center}
-            \includegraphics[width=.95\linewidth]{./cf_wa.png}
+            \includegraphics[width=.95\linewidth]{./res/cf_wa.png}
         \end{center}\pause
 
         Obtuvimos un nuevo veredicto: \textbf{\textcolor{red}{Wrong Answer}} (abreviado como \textbf{\textcolor{red}{WA}}), es decir, \textit{\textcolor{red}{respuesta incorrecta}}. \pause
@@ -1826,7 +1826,7 @@ else
         \pause
 
         \begin{center}
-            \includegraphics[width=.95\linewidth]{./cf_ac.png}
+            \includegraphics[width=.95\linewidth]{./res/cf_ac.png}
         \end{center}
     \end{frame}
 
@@ -1839,13 +1839,13 @@ else
 
         Otro juez más:\pause
         \begin{center}
-            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{cses_logo.png}}
+            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{./res/cses_logo.png}}
         \end{center} 
     \end{frame}
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{cses_logo.png}}
+            \href{https://cses.fi/}{\includegraphics[width=.4\linewidth]{./res/cses_logo.png}}
         \end{center} \pause
 
         Es un juez utilizado en Finlandia para organizar competencias que tiene un conjunto de problemas reducido pero de muy buena calidad, orientados a educar en diversos temas de Programación Competitiva. \pause \vspace{4pt}
@@ -1898,7 +1898,7 @@ for (int i = 0; i < n; i++) {
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=.4\linewidth]{./cses_tle.png}
+            \includegraphics[width=.4\linewidth]{./res/cses_tle.png}
         \end{center}
         \pause
 
@@ -1929,22 +1929,22 @@ for (int i = 0; i < n; i++) {
         \begin{itemize}
             \item \textbf{omegaUp}: ``Error de ejecución''
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./ou_rte.png}
+                \includegraphics[width=.8\linewidth]{./res/ou_rte.png}
             \end{center}
 
             \item \textbf{CodeForces}: ``Runtime error on test ...''
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./cf_rte.png}
+                \includegraphics[width=.8\linewidth]{./res/cf_rte.png}
             \end{center}
             
             \item \textbf{OIA Juez}: ``Execution killed (could be triggered by violating memory limits)''
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./oiaj_rte.png}
+                \includegraphics[width=.8\linewidth]{./res/oiaj_rte.png}
             \end{center}
 
             \item \textbf{SPOJ}: ``runtime error (SIGSEGV)''
             \begin{center}
-                \includegraphics[width=.8\linewidth]{./spoj_rte.png}
+                \includegraphics[width=.8\linewidth]{./res/spoj_rte.png}
             \end{center}
         \item 
         \end{itemize}
@@ -1986,7 +1986,7 @@ for (int i = 0; i < n; i++) {
         Previamente mencionamos que omegaUp permite crear competencias (llamados \textit{concursos}) fácilmente. \pause Probemos buscar un concurso. \vspace{8pt} \pause
 
         \begin{minipage}{.35\linewidth}
-            \includegraphics[width=.9\linewidth]{./ou_contest_bar.png}
+            \includegraphics[width=.9\linewidth]{./res/ou_contest_bar.png}
         \end{minipage}\pause
         \begin{minipage}{.64\linewidth}
             Al hacer click en la pestaña Concursos desde la página principal, podemos ver la lista de todos los concursos disponibles entrando a ``Ver Concursos''.
@@ -1995,7 +1995,7 @@ for (int i = 0; i < n; i++) {
 
     \begin{frame}[noframenumbering]
         \begin{center}
-            \includegraphics[width=.8\linewidth]{./ou_contests.png}
+            \includegraphics[width=.8\linewidth]{./res/ou_contests.png}
         \end{center}\pause
         Al ingresar, nos encontraremos en una pantalla como esta. Aquí se encuentran las competencias en curso, ordenadas por tiempo de finalización de ``más tarde a más temprano''. Hay que considerar que una competencia se puede armar para que dure días o incluso meses. \pause
 

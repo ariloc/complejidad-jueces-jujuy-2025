@@ -3,6 +3,5 @@
 !.gitignore
 !*.pdf
 !*.tex
-!*.png
-!*.jpg
 !code/
+!res/
